@@ -1,0 +1,333 @@
+﻿/* Onboarding Screen - Clean Flat Design */
+.onboarding-screen {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffb6c1 0%, #ffa07a 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navigation Header */
+.onboarding-header {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 10;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.back-btn:hover {
+  transform: scale(1.1) translateZ(0);
+}
+
+.skip-btn {
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: color 0.2s ease;
+  will-change: color;
+}
+
+.skip-btn:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* Content Container - Centered Clean Layout */
+.onboarding-content {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 60px 60px;
+  z-index: 5;
+}
+
+/* Illustration */
+.illustration-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 35px;
+}
+
+.illustration-image {
+  width: 100%;
+  height: auto;
+  max-height: 360px;
+  object-fit: contain;
+  animation: fadeIn 0.4s ease-out;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* Text Content */
+.text-content {
+  text-align: center;
+  padding: 0 20px;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.onboarding-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+}
+
+.onboarding-description {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.65);
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Pagination Dots */
+.pagination-dots {
+  display: flex;
+  gap: 10px;
+  margin: 28px 0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: width, background-color;
+  transform: translateZ(0);
+}
+
+.dot.active {
+  background-color: #ff4e7a;
+  width: 32px;
+  border-radius: 5px;
+}
+
+/* Navigation Button */
+.navigation-button {
+  margin-bottom: 20px;
+}
+
+.next-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4e7a 0%, #ff6b9d 100%);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(255, 78, 122, 0.3);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.next-btn:hover {
+  transform: translateY(-3px) translateZ(0);
+  box-shadow: 0 12px 32px rgba(255, 78, 122, 0.4);
+}
+
+.next-btn:active {
+  transform: translateY(-1px) translateZ(0);
+  transition: transform 0.1s ease;
+}
+
+.get-started-btn {
+  padding: 16px 56px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, #ff4e7a 0%, #ff6b9d 100%);
+  color: white;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(255, 78, 122, 0.3);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.3px;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.get-started-btn:hover {
+  transform: translateY(-3px) translateZ(0);
+  box-shadow: 0 12px 32px rgba(255, 78, 122, 0.4);
+}
+
+.get-started-btn:active {
+  transform: translateY(-1px) translateZ(0);
+  transition: transform 0.1s ease;
+}
+
+
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 1024px) {
+  .onboarding-content {
+    padding: 80px 50px 50px;
+  }
+
+  .illustration-container {
+    max-width: 400px;
+  }
+
+  .illustration-image {
+    max-height: 350px;
+  }
+
+  .onboarding-title {
+    font-size: 26px;
+  }
+
+  .onboarding-description {
+    font-size: 15px;
+  }
+}
+
+/* Responsive Design - Mobile (Clean Flat Design) */
+@media (max-width: 768px) {
+  .onboarding-header {
+    top: 20px;
+    padding: 0 24px;
+  }
+
+  .onboarding-content {
+    padding: 70px 30px 40px;
+  }
+
+  .illustration-container {
+    max-width: 320px;
+    margin-bottom: 30px;
+  }
+
+  .illustration-image {
+    max-height: 280px;
+  }
+
+  .text-content {
+    padding: 0 10px;
+    margin-bottom: 30px;
+  }
+
+  .onboarding-title {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .onboarding-description {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .pagination-dots {
+    gap: 8px;
+    margin: 24px 0;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dot.active {
+    width: 24px;
+  }
+
+  .next-btn {
+    width: 56px;
+    height: 56px;
+  }
+
+  .get-started-btn {
+    padding: 14px 45px;
+    font-size: 16px;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .onboarding-header {
+    padding: 0 20px;
+  }
+
+  .onboarding-content {
+    padding: 60px 20px 30px;
+  }
+
+  .illustration-container {
+    max-width: 280px;
+  }
+
+  .illustration-image {
+    max-height: 240px;
+  }
+
+  .onboarding-title {
+    font-size: 20px;
+  }
+
+  .onboarding-description {
+    font-size: 13px;
+  }
+
+  .next-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+  .get-started-btn {
+    padding: 12px 40px;
+    font-size: 15px;
+  }
+}
