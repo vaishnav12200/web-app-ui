@@ -3,3 +3,32 @@
   height: 100vh;
   overflow: hidden;
 }
+
+/* Global Back Arrow - Fixed position on all screens */
+.screen-back-btn {
+  position: fixed;
+  top: 28px;
+  left: 28px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 999;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.screen-back-btn:hover {
+  background: #ffffff;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
+.screen-back-btn:active {
+  transform: translateX(-1px);
+}

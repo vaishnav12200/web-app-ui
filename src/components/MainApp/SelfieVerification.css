@@ -1,0 +1,346 @@
+/* Selfie Verification Screen */
+.selfie-verification-screen {
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.selfie-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 60px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Header */
+.selfie-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.selfie-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.selfie-subtitle {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Scanner Area */
+.scanner-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.scanner-circle-wrapper {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scanner-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+  z-index: 2;
+}
+
+.scanner-progress-ring {
+  transition: stroke-dashoffset 0.15s ease;
+}
+
+.scanner-center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.scanner-face-icon {
+  opacity: 0.6;
+}
+
+/* Live camera feed clipped to circle */
+.camera-feed-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: #1a1a2e;
+}
+
+.selfie-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.camera-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+}
+
+/* Scan sweep line animation over camera */
+.scan-sweep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #22c55e, transparent);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.6);
+  animation: sweepDown 2s ease-in-out infinite;
+  z-index: 3;
+}
+
+@keyframes sweepDown {
+  0% { top: 0; }
+  50% { top: 100%; }
+  100% { top: 0; }
+}
+
+/* Progress label below circle */
+.scan-progress-label {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  margin-top: 16px;
+}
+
+.progress-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: #22c55e;
+  line-height: 1;
+}
+
+.progress-percent {
+  font-size: 18px;
+  font-weight: 600;
+  color: #22c55e;
+}
+
+.scanner-success-icon {
+  animation: scaleIn 0.4s ease-out;
+}
+
+/* Verify Now Button */
+.verify-now-btn {
+  background: linear-gradient(135deg, #ff4e7a 0%, #ff6b9d 100%);
+  color: white;
+  border: none;
+  padding: 18px 48px;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(255, 78, 122, 0.3);
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.verify-now-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(255, 78, 122, 0.4);
+}
+
+.verify-now-btn:active {
+  transform: translateY(0px);
+}
+
+/* Verified Badge */
+.verified-badge-container {
+  margin-bottom: 30px;
+  animation: fadeIn 0.5s ease;
+}
+
+.verified-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.3);
+}
+
+.badge-check {
+  font-size: 22px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+/* Verification Info */
+.verification-info {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.info-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin: 0 0 12px 0;
+}
+
+.info-list {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.info-list li {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 6px;
+  line-height: 1.5;
+  position: relative;
+}
+
+.info-list li::before {
+  content: '•';
+  color: #ff4e7a;
+  font-weight: bold;
+  position: absolute;
+  left: -15px;
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+  .selfie-container {
+    padding: 40px 28px 30px;
+  }
+
+  .selfie-title {
+    font-size: 28px;
+  }
+
+  .selfie-subtitle {
+    font-size: 15px;
+  }
+
+  .scanner-circle-wrapper {
+    width: 220px;
+    height: 220px;
+  }
+
+  .scanner-svg {
+    width: 220px;
+    height: 220px;
+  }
+
+  .camera-feed-circle {
+    width: 170px;
+    height: 170px;
+  }
+
+  .progress-number {
+    font-size: 30px;
+  }
+
+  .verify-now-btn {
+    font-size: 17px;
+    padding: 16px 36px;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .selfie-container {
+    padding: 30px 20px 25px;
+  }
+
+  .selfie-title {
+    font-size: 24px;
+  }
+
+  .selfie-subtitle {
+    font-size: 14px;
+  }
+
+  .scanner-circle-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .scanner-svg {
+    width: 200px;
+    height: 200px;
+  }
+
+  .camera-feed-circle {
+    width: 155px;
+    height: 155px;
+  }
+
+  .progress-number {
+    font-size: 26px;
+  }
+
+  .verify-now-btn {
+    font-size: 16px;
+    padding: 14px 28px;
+  }
+
+  .verification-info {
+    padding: 16px;
+  }
+
+  .info-title {
+    font-size: 15px;
+  }
+
+  .info-list li {
+    font-size: 13px;
+  }
+}
+
