@@ -78,13 +78,13 @@
   justify-content: center;
   width: 100%;
   max-width: 420px;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 }
 
 .illustration-image {
   width: 100%;
   height: auto;
-  max-height: 360px;
+  max-height: 320px;
   object-fit: contain;
   animation: fadeIn 0.4s ease-out;
   transform: translateZ(0);
@@ -220,10 +220,11 @@
 
   .illustration-container {
     max-width: 400px;
+    margin-bottom: 18px;
   }
 
   .illustration-image {
-    max-height: 350px;
+    max-height: 300px;
   }
 
   .onboarding-title {

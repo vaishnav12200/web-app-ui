@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Onboarding from './components/Onboarding/Onboarding'
+import Auth from './components/Auth/Auth'
 import './App.css'
 
 function App() {
@@ -10,12 +11,20 @@ function App() {
     console.log('Onboarding completed!')
   }
 
+  const handleAuthComplete = () => {
+    setCurrentScreen('main')
+    console.log('Authentication completed!')
+  }
+
   return (
     <div className="app">
       {currentScreen === 'onboarding' && (
         <Onboarding onComplete={handleOnboardingComplete} />
       )}
       {currentScreen === 'auth' && (
+        <Auth onAuthComplete={handleAuthComplete} />
+      )}
+      {currentScreen === 'main' && (
         <div style={{ 
           display: 'flex', 
           alignItems: 'center', 
@@ -26,7 +35,7 @@ function App() {
           fontSize: '24px',
           fontWeight: 'bold'
         }}>
-          Auth Screens Coming Next!
+          Main App Coming Next!
         </div>
       )}
     </div>
