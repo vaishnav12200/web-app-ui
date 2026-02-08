@@ -1,0 +1,365 @@
+/* ===== Likes Page ===== */
+.likes-page {
+  padding-bottom: 20px;
+}
+
+.likes-header {
+  padding: 16px 20px;
+  background: #fff;
+}
+
+.likes-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* ===== Tabs ===== */
+.likes-tabs {
+  display: flex;
+  padding: 0 20px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.likes-tab {
+  flex: 1;
+  padding: 12px 8px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.likes-tab.active {
+  color: #ff4e7a;
+  border-bottom-color: #ff4e7a;
+}
+
+.tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background: #ff4e7a;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.likes-tab:not(.active) .tab-count {
+  background: #ddd;
+  color: #777;
+}
+
+/* ===== Content ===== */
+.likes-content {
+  padding: 16px 20px;
+}
+
+.likes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ===== Empty State ===== */
+.likes-empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.likes-empty-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.likes-empty h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 8px;
+}
+
+.likes-empty p {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+}
+
+/* ===== Match Card ===== */
+.match-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.match-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.match-card-photo {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.match-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.match-verified-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.match-online-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  background: #4ecdc4;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.match-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.match-card-info h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+}
+
+.match-last-msg {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.match-chat-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff0f5;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+.match-chat-btn:hover {
+  background: #ffe0eb;
+}
+
+/* ===== Liked You ===== */
+.liked-you-section {
+  text-align: center;
+}
+
+.liked-you-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.liked-count-number {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ff4e7a;
+}
+
+.liked-count-text {
+  font-size: 14px;
+  color: #888;
+}
+
+.liked-you-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.liked-you-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.liked-you-card.blurred .liked-you-photo img {
+  filter: blur(12px);
+}
+
+.liked-you-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.liked-you-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.liked-you-info {
+  padding: 10px;
+}
+
+.liked-you-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.liked-you-lock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.liked-you-hint {
+  font-size: 13px;
+  color: #ff4e7a;
+  font-weight: 600;
+}
+
+/* ===== You Liked ===== */
+.you-liked-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.you-liked-photo {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.you-liked-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.you-liked-info {
+  flex: 1;
+}
+
+.you-liked-info h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+}
+
+.you-liked-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #999;
+}
+
+.waiting-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffc107;
+  animation: blink 1.5s ease infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.undo-like-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 14px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.undo-like-btn:hover {
+  background: #eee;
+  color: #555;
+}

@@ -7,6 +7,7 @@ import PurposeSelection from './components/MainApp/PurposeSelection'
 import PhotoUpload from './components/MainApp/PhotoUpload'
 import SelfieVerification from './components/MainApp/SelfieVerification'
 import ProfileCompleted from './components/MainApp/ProfileCompleted'
+import MainApp from './components/MainApp/MainApp'
 import './App.css'
 
 function App() {
@@ -92,18 +93,7 @@ function App() {
         <ProfileCompleted onComplete={handleProfileComplete} />
       )}
       {currentScreen === 'main' && (
-        <div style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'center', 
-          height: '100vh',
-          background: 'linear-gradient(180deg, #ff8cf7 0%, #ff6b9d 50%, #ff4e7a 100%)',
-          color: 'white',
-          fontSize: '24px',
-          fontWeight: 'bold'
-        }}>
-          Main App Coming Soon!
-        </div>
+        <MainApp userProfile={userProfile} />
       )}
     </div>
   )

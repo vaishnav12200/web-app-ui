@@ -189,6 +189,84 @@
   color: #ff4e7a;
 }
 
+/* Country Selection */
+.country-selector {
+  position: relative;
+}
+
+.country-input-wrapper {
+  position: relative;
+}
+
+.country-input {
+  width: 100%;
+  padding: 14px 40px 14px 16px;
+  font-size: 16px;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fafafa;
+  box-sizing: border-box;
+}
+
+.country-input:focus {
+  border-color: #ff4e7a;
+  background: #fff;
+}
+
+.country-chevron {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none;
+}
+
+.country-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  margin-top: 4px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  z-index: 100;
+}
+
+.country-option {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.country-option:hover {
+  background: #fff0f3;
+}
+
+.country-option.selected {
+  background: #fff0f3;
+  color: #ff4e7a;
+  font-weight: 600;
+}
+
+.country-no-results {
+  padding: 16px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
 .distance-slider {
   margin-top: 10px;
 }

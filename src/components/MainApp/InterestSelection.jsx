@@ -1,24 +1,25 @@
 import { useState } from 'react';
+import { Music, Gamepad2, Film, Dumbbell, BookOpen, Plane, CookingPot, Palette, Theater, Camera, Trophy, Flower2, UtensilsCrossed, PawPrint, Check, ChevronLeft } from 'lucide-react';
 import './InterestSelection.css';
 
 function InterestSelection({ onComplete, onBack }) {
   const [selectedInterests, setSelectedInterests] = useState([]);
 
   const interests = [
-    { id: 'music', icon: '🎵', label: 'Music' },
-    { id: 'gaming', icon: '🎮', label: 'Gaming' },
-    { id: 'movies', icon: '🎬', label: 'Movies' },
-    { id: 'fitness', icon: '🏋️', label: 'Fitness' },
-    { id: 'reading', icon: '📚', label: 'Reading' },
-    { id: 'travel', icon: '✈️', label: 'Travel' },
-    { id: 'cooking', icon: '🍳', label: 'Cooking' },
-    { id: 'art', icon: '🎨', label: 'Art' },
-    { id: 'theatre', icon: '🎭', label: 'Theatre' },
-    { id: 'photography', icon: '📸', label: 'Photography' },
-    { id: 'sports', icon: '⚽', label: 'Sports' },
-    { id: 'yoga', icon: '🧘', label: 'Yoga' },
-    { id: 'foodie', icon: '🍕', label: 'Foodie' },
-    { id: 'pets', icon: '🐕', label: 'Pets' },
+    { id: 'music', icon: <Music size={20} />, label: 'Music' },
+    { id: 'gaming', icon: <Gamepad2 size={20} />, label: 'Gaming' },
+    { id: 'movies', icon: <Film size={20} />, label: 'Movies' },
+    { id: 'fitness', icon: <Dumbbell size={20} />, label: 'Fitness' },
+    { id: 'reading', icon: <BookOpen size={20} />, label: 'Reading' },
+    { id: 'travel', icon: <Plane size={20} />, label: 'Travel' },
+    { id: 'cooking', icon: <CookingPot size={20} />, label: 'Cooking' },
+    { id: 'art', icon: <Palette size={20} />, label: 'Art' },
+    { id: 'theatre', icon: <Theater size={20} />, label: 'Theatre' },
+    { id: 'photography', icon: <Camera size={20} />, label: 'Photography' },
+    { id: 'sports', icon: <Trophy size={20} />, label: 'Sports' },
+    { id: 'yoga', icon: <Flower2 size={20} />, label: 'Yoga' },
+    { id: 'foodie', icon: <UtensilsCrossed size={20} />, label: 'Foodie' },
+    { id: 'pets', icon: <PawPrint size={20} />, label: 'Pets' },
   ];
 
   const toggleInterest = (interestId) => {
@@ -45,9 +46,7 @@ function InterestSelection({ onComplete, onBack }) {
       {/* Fixed Back Arrow */}
       {onBack && (
         <button className="screen-back-btn" onClick={onBack}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18L9 12L15 6" stroke="#2d2d2d" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <ChevronLeft size={24} color="#2d2d2d" />
         </button>
       )}
 
@@ -59,7 +58,7 @@ function InterestSelection({ onComplete, onBack }) {
             Select at least 3 interests to help us find your perfect match
           </p>
           <p className="interest-count">
-            {selectedInterests.length} selected {selectedInterests.length >= 3 && '✓'}
+            {selectedInterests.length} selected {selectedInterests.length >= 3 && <Check size={16} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: 4 }} />}
           </p>
         </div>
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ChevronLeft, X, Plus, Camera, Check, XCircle } from 'lucide-react';
 import './PhotoUpload.css';
 
 function PhotoUpload({ onComplete, onBack }) {
@@ -38,9 +39,7 @@ function PhotoUpload({ onComplete, onBack }) {
       {/* Fixed Back Arrow */}
       {onBack && (
         <button className="screen-back-btn" onClick={onBack}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18L9 12L15 6" stroke="#2d2d2d" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <ChevronLeft size={24} color="#2d2d2d" />
         </button>
       )}
 
@@ -52,7 +51,7 @@ function PhotoUpload({ onComplete, onBack }) {
             Choose clear photos of yourself
           </p>
           <p className="photo-upload-info">
-            {uploadedCount}/6 photos uploaded {uploadedCount >= 1 && '✓'}
+            {uploadedCount}/6 photos uploaded {uploadedCount >= 1 && <Check size={16} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: 4 }} />}
           </p>
         </div>
 
@@ -67,9 +66,7 @@ function PhotoUpload({ onComplete, onBack }) {
                     className="remove-photo-btn"
                     onClick={() => handleRemovePhoto(index)}
                   >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M18 6L6 18M6 6l12 12" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
+                    <X size={20} color="white" />
                   </button>
                   {index === 0 && (
                     <div className="primary-badge">Main Photo</div>
@@ -84,14 +81,7 @@ function PhotoUpload({ onComplete, onBack }) {
                     className="photo-input"
                   />
                   <div className="upload-placeholder">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M12 5v14m-7-7h14"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
+                    <Plus size={40} />
                     <span className="upload-text">
                       {index === 0 ? 'Main Photo' : 'Add Photo'}
                     </span>
@@ -104,12 +94,12 @@ function PhotoUpload({ onComplete, onBack }) {
 
         {/* Tips */}
         <div className="photo-tips">
-          <p className="tips-title">📸 Photo Tips:</p>
+          <p className="tips-title"><Camera size={16} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 4 }} /> Photo Tips:</p>
           <ul className="tips-list">
-            <li>✅ Use clear, recent photos</li>
-            <li>✅ Show your face clearly</li>
-            <li>❌ No screenshots or blurred images</li>
-            <li>✅ At least 1 photo required</li>
+            <li><Check size={14} color="#22c55e" style={{ display: 'inline', verticalAlign: 'middle', marginRight: 4 }} />Use clear, recent photos</li>
+            <li><Check size={14} color="#22c55e" style={{ display: 'inline', verticalAlign: 'middle', marginRight: 4 }} />Show your face clearly</li>
+            <li><XCircle size={14} color="#ef4444" style={{ display: 'inline', verticalAlign: 'middle', marginRight: 4 }} />No screenshots or blurred images</li>
+            <li><Check size={14} color="#22c55e" style={{ display: 'inline', verticalAlign: 'middle', marginRight: 4 }} />At least 1 photo required</li>
           </ul>
         </div>
 

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { PartyPopper, CheckCircle, Target, Heart, ArrowRight } from 'lucide-react';
 import './ProfileCompleted.css';
 
 function ProfileCompleted({ onComplete }) {
@@ -63,7 +64,7 @@ function ProfileCompleted({ onComplete }) {
 
         {/* Success Message */}
         <div className="completed-content">
-          <h1 className="completed-title">🎉 Your Profile is Ready!</h1>
+          <h1 className="completed-title"><PartyPopper size={28} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 8 }} /> Your Profile is Ready!</h1>
           <p className="completed-subtitle">
             You're all set to start meeting amazing people
           </p>
@@ -75,15 +76,15 @@ function ProfileCompleted({ onComplete }) {
         {/* Stats */}
         <div className="profile-stats">
           <div className="stat-item">
-            <div className="stat-icon">✓</div>
+            <div className="stat-icon"><CheckCircle size={24} color="#22c55e" /></div>
             <div className="stat-label">Profile Verified</div>
           </div>
           <div className="stat-item">
-            <div className="stat-icon">🎯</div>
+            <div className="stat-icon"><Target size={24} color="#ff4e7a" /></div>
             <div className="stat-label">Preferences Set</div>
           </div>
           <div className="stat-item">
-            <div className="stat-icon">❤️</div>
+            <div className="stat-icon"><Heart size={24} color="#ff4e7a" /></div>
             <div className="stat-label">Ready to Match</div>
           </div>
         </div>
@@ -91,15 +92,7 @@ function ProfileCompleted({ onComplete }) {
         {/* Action Button */}
         <button className="start-swiping-btn" onClick={handleStartSwiping}>
           <span>Start Swiping</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path 
-              d="M5 12h14m-7-7l7 7-7 7" 
-              stroke="white" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            />
-          </svg>
+          <ArrowRight size={20} color="white" />
         </button>
       </div>
     </div>

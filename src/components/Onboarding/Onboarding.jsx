@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './Onboarding.css';
 import onboarding1 from '../../assets/onboarding-1.svg';
 import onboarding2 from '../../assets/onboarding-2.svg';
@@ -52,9 +53,7 @@ function Onboarding({ onComplete }) {
       <div className="onboarding-header">
         {currentSlide > 0 && (
           <button className="back-btn" onClick={handleBack}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M15 18L9 12L15 6" stroke="rgba(0,0,0,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronLeft size={24} color="rgba(0,0,0,0.6)" />
           </button>
         )}
         <button className="skip-btn" onClick={handleSkip}>
@@ -95,9 +94,7 @@ function Onboarding({ onComplete }) {
         <div className="navigation-button">
           {currentSlide < slides.length - 1 ? (
             <button className="next-btn" onClick={handleNext}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <ChevronRight size={24} color="white" />
             </button>
           ) : (
             <button className="get-started-btn" onClick={onComplete}>

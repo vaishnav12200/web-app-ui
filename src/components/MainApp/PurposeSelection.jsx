@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Heart, Gem, Handshake, ChevronLeft, Check } from 'lucide-react';
 import './PurposeSelection.css';
 
 function PurposeSelection({ onComplete, onBack }) {
@@ -7,19 +8,19 @@ function PurposeSelection({ onComplete, onBack }) {
   const purposes = [
     {
       id: 'dating',
-      icon: '❤️',
+      icon: <Heart size={28} color="#ff4e7a" />,
       title: 'Dating',
       description: 'Find someone special for romantic connection'
     },
     {
       id: 'relationship',
-      icon: '💍',
+      icon: <Gem size={28} color="#ff4e7a" />,
       title: 'Relationship',
       description: 'Looking for serious, long-term commitment'
     },
     {
       id: 'friendship',
-      icon: '🤝',
+      icon: <Handshake size={28} color="#ff4e7a" />,
       title: 'Friendship',
       description: 'Meet new friends and expand social circle'
     }
@@ -42,9 +43,7 @@ function PurposeSelection({ onComplete, onBack }) {
       {/* Fixed Back Arrow */}
       {onBack && (
         <button className="screen-back-btn" onClick={onBack}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18L9 12L15 6" stroke="#2d2d2d" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <ChevronLeft size={24} color="#2d2d2d" />
         </button>
       )}
 
@@ -72,9 +71,7 @@ function PurposeSelection({ onComplete, onBack }) {
               </div>
               <div className="purpose-check">
                 {selectedPurpose === purpose.id && (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 13l4 4L19 7" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <Check size={24} color="white" strokeWidth={3} />
                 )}
               </div>
             </button>

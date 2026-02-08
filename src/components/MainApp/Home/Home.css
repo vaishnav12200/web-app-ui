@@ -1,0 +1,366 @@
+/* ===== Home Page ===== */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 70px);
+  height: calc(100dvh - 70px);
+  background: #fafafa;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== Header ===== */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #fff;
+  z-index: 10;
+}
+
+.home-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.home-logo h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* ===== Card Stack ===== */
+.card-stack {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  position: relative;
+}
+
+.profile-card {
+  position: absolute;
+  width: calc(100% - 32px);
+  max-width: 400px;
+  height: calc(100% - 20px);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+.next-card {
+  transform: scale(0.95);
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.current-card {
+  z-index: 1;
+  cursor: grab;
+}
+
+.current-card:active {
+  cursor: grabbing;
+}
+
+/* ===== Card Photo ===== */
+.card-photo {
+  position: relative;
+  width: 100%;
+  height: 65%;
+  overflow: hidden;
+}
+
+.card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.card-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.03));
+  pointer-events: none;
+}
+
+/* Photo dots */
+.photo-dots {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+
+.photo-dot {
+  width: 8px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.photo-dot.active {
+  width: 20px;
+  background: #fff;
+}
+
+/* ===== Swipe Indicators ===== */
+.swipe-indicator {
+  position: absolute;
+  top: 60px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.like-indicator {
+  right: 20px;
+  color: #4ecdc4;
+  border: 3px solid #4ecdc4;
+  transform: rotate(15deg);
+}
+
+.pass-indicator {
+  left: 20px;
+  color: #ff6b6b;
+  border: 3px solid #ff6b6b;
+  transform: rotate(-15deg);
+}
+
+.swipe-indicator.visible {
+  opacity: 1;
+}
+
+/* ===== Card Info ===== */
+.card-info {
+  padding: 16px 20px;
+  height: 35%;
+  overflow-y: auto;
+}
+
+.card-name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.card-name-row h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+}
+
+.card-distance {
+  font-size: 13px;
+  color: #888;
+}
+
+.card-purpose {
+  margin-bottom: 10px;
+}
+
+.purpose-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  background: #fff0f5;
+  color: #ff4e7a;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.card-country {
+  margin-bottom: 6px;
+}
+
+.country-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  background: #f0f7ff;
+  color: #4a90d9;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.card-interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.interest-chip {
+  padding: 4px 10px;
+  background: #f5f5f5;
+  border-radius: 14px;
+  font-size: 12px;
+  color: #555;
+  font-weight: 500;
+}
+
+.card-bio {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== Action Buttons ===== */
+.swipe-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 20px 16px;
+  background: #fafafa;
+  z-index: 10;
+}
+
+.action-btn {
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn:hover {
+  transform: scale(1.1);
+}
+
+.action-btn:active {
+  transform: scale(0.95);
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.pass-btn {
+  width: 56px;
+  height: 56px;
+  background: #fff;
+  color: #ff6b6b;
+}
+
+.pass-btn svg {
+  width: 26px;
+  height: 26px;
+}
+
+.info-btn {
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  color: #1DA1F2;
+}
+
+.info-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.like-btn {
+  width: 56px;
+  height: 56px;
+  background: #fff;
+  color: #4ecdc4;
+}
+
+.like-btn svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* ===== Empty State ===== */
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.empty-state h2 {
+  font-size: 20px;
+  color: #333;
+  margin: 0 0 8px;
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 380px) {
+  .card-info {
+    padding: 12px 16px;
+  }
+
+  .card-name-row h2 {
+    font-size: 18px;
+  }
+
+  .swipe-actions {
+    gap: 16px;
+    padding: 8px 16px 12px;
+  }
+
+  .pass-btn, .like-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .info-btn {
+    width: 38px;
+    height: 38px;
+  }
+}

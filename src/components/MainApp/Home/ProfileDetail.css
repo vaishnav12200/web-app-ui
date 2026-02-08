@@ -1,0 +1,204 @@
+/* ===== Profile Detail Overlay ===== */
+.profile-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 500;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.profile-detail {
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+/* Close Button */
+.pd-close-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 510;
+  transition: background 0.2s ease;
+}
+
+.pd-close-btn:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.pd-close-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Photo Section */
+.pd-photo-section {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  overflow: hidden;
+}
+
+.pd-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pd-photo-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+}
+
+.pd-nav-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: transparent;
+  cursor: pointer;
+  font-size: 50px;
+}
+
+.pd-nav-btn:disabled {
+  cursor: default;
+}
+
+.pd-photo-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.pd-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pd-dot.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+/* Content */
+.pd-content {
+  padding: 24px 20px;
+}
+
+.pd-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pd-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1DA1F2;
+}
+
+.pd-distance {
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 20px;
+}
+
+.pd-section {
+  margin-bottom: 24px;
+}
+
+.pd-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.pd-purpose-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fff0f5;
+  color: #ff4e7a;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pd-country-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #f0f7ff;
+  color: #4a90d9;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pd-bio {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pd-interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pd-interest-chip {
+  padding: 8px 14px;
+  background: #f5f5f5;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #444;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .profile-detail-overlay {
+    max-width: 430px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: slideUp 0.3s ease;
+  }
+}

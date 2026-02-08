@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { ChevronLeft, Check, Camera, Lock, ShieldCheck } from 'lucide-react';
 import './SelfieVerification.css';
 
 function SelfieVerification({ onComplete, onBack }) {
@@ -71,9 +72,7 @@ function SelfieVerification({ onComplete, onBack }) {
           stopCamera();
           onBack();
         }}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18L9 12L15 6" stroke="#2d2d2d" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <ChevronLeft size={24} color="#2d2d2d" />
         </button>
       )}
 
@@ -84,7 +83,7 @@ function SelfieVerification({ onComplete, onBack }) {
             {step === 'initial' && 'Verify Your Identity'}
             {step === 'camera-ready' && 'Position Your Face'}
             {step === 'scanning' && 'Scanning...'}
-            {step === 'success' && 'Verified! ✓'}
+            {step === 'success' && <><Check size={20} style={{ display: 'inline', verticalAlign: 'middle' }} /> Verified!</>}
           </h1>
           <p className="selfie-subtitle">
             {step === 'initial' && 'Quick face verification to keep our community safe'}
@@ -171,10 +170,7 @@ function SelfieVerification({ onComplete, onBack }) {
         {/* Action Buttons */}
         {step === 'initial' && (
           <button className="verify-now-btn" onClick={startCamera}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style={{marginRight: 8}}>
-              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <circle cx="12" cy="13" r="4" stroke="white" strokeWidth="2"/>
-            </svg>
+            <Camera size={22} color="white" style={{marginRight: 8}} />
             Start Camera
           </button>
         )}
@@ -188,7 +184,7 @@ function SelfieVerification({ onComplete, onBack }) {
         {step === 'success' && (
           <div className="verified-badge-container">
             <div className="verified-badge">
-              <span className="badge-check">✓</span>
+              <span className="badge-check"><Check size={18} /></span>
               <span>Profile Verified</span>
             </div>
           </div>
@@ -196,7 +192,7 @@ function SelfieVerification({ onComplete, onBack }) {
 
         {/* Info */}
         <div className="verification-info">
-          <p className="info-title">🔒 Why we verify:</p>
+          <p className="info-title"><Lock size={16} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 4 }} /> Why we verify:</p>
           <ul className="info-list">
             <li>Prevents fake profiles</li>
             <li>Ensures authenticity</li>

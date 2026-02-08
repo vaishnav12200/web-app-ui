@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Heart } from 'lucide-react';
 import './Auth.css';
 
 function Auth({ onAuthComplete }) {
@@ -90,20 +91,7 @@ function Auth({ onAuthComplete }) {
       <div className="auth-container">
         {/* Logo */}
         <div className="auth-logo">
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
-            <path 
-              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" 
-              fill="url(#heartGradient)"
-              stroke="white"
-              strokeWidth="0.5"
-            />
-            <defs>
-              <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#ff4e7a" />
-                <stop offset="100%" stopColor="#ff6b9d" />
-              </linearGradient>
-            </defs>
-          </svg>
+          <Heart size={80} fill="#ff4e7a" color="#ff4e7a" />
         </div>
 
         {/* Title */}

@@ -1,5 +1,19 @@
 import { useState, useEffect } from 'react';
+import { ChevronLeft, User, UserRound, ChevronDown } from 'lucide-react';
 import './GenderSelection.css';
+
+const COUNTRIES = [
+  'United States', 'United Kingdom', 'Canada', 'Australia', 'India',
+  'Germany', 'France', 'Japan', 'Brazil', 'South Korea',
+  'Mexico', 'Italy', 'Spain', 'Netherlands', 'Sweden',
+  'Switzerland', 'Singapore', 'New Zealand', 'Ireland', 'Norway',
+  'Denmark', 'Portugal', 'Argentina', 'Colombia', 'Philippines',
+  'Thailand', 'Vietnam', 'Indonesia', 'Malaysia', 'South Africa',
+  'Nigeria', 'Egypt', 'Turkey', 'Saudi Arabia', 'UAE',
+  'Pakistan', 'Bangladesh', 'Sri Lanka', 'Nepal', 'China',
+  'Russia', 'Ukraine', 'Poland', 'Czech Republic', 'Romania',
+  'Greece', 'Israel', 'Chile', 'Peru', 'Kenya',
+];
 
 function GenderSelection({ onComplete, onBack }) {
   const [selectedGender, setSelectedGender] = useState('');
@@ -7,6 +21,9 @@ function GenderSelection({ onComplete, onBack }) {
   const [dob, setDob] = useState('');
   const [dobError, setDobError] = useState('');
   const [ageRange, setAgeRange] = useState([18, 35]);
+  const [country, setCountry] = useState('');
+  const [countrySearch, setCountrySearch] = useState('');
+  const [showCountryDropdown, setShowCountryDropdown] = useState(false);
 
   // Smart auto-preference logic
   useEffect(() => {
@@ -50,28 +67,37 @@ function GenderSelection({ onComplete, onBack }) {
 
   const isDobValid = dob && !dobError && getAge(dob) >= 18;
 
+  const filteredCountries = COUNTRIES.filter(c =>
+    c.toLowerCase().includes(countrySearch.toLowerCase())
+  );
+
+  const handleCountrySelect = (c) => {
+    setCountry(c);
+    setCountrySearch(c);
+    setShowCountryDropdown(false);
+  };
+
   const handleContinue = () => {
-    if (selectedGender && lookingFor && isDobValid) {
+    if (selectedGender && lookingFor && isDobValid && country) {
       onComplete({
         gender: selectedGender,
         lookingFor,
         dateOfBirth: dob,
         age: getAge(dob),
-        ageRange
+        ageRange,
+        country
       });
     }
   };
 
-  const isButtonEnabled = selectedGender && lookingFor && isDobValid;
+  const isButtonEnabled = selectedGender && lookingFor && isDobValid && country;
 
   return (
     <div className="gender-selection-screen">
       {/* Fixed Back Arrow */}
       {onBack && (
         <button className="screen-back-btn" onClick={onBack}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18L9 12L15 6" stroke="#2d2d2d" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <ChevronLeft size={24} color="#2d2d2d" />
         </button>
       )}
 
@@ -92,14 +118,14 @@ function GenderSelection({ onComplete, onBack }) {
               className={`gender-card ${selectedGender === 'male' ? 'selected' : ''}`}
               onClick={() => handleGenderSelect('male')}
             >
-              <span className="gender-icon">👨</span>
+              <span className="gender-icon"><User size={28} /></span>
               <span className="gender-text">Male</span>
             </button>
             <button
               className={`gender-card ${selectedGender === 'female' ? 'selected' : ''}`}
               onClick={() => handleGenderSelect('female')}
             >
-              <span className="gender-icon">👩</span>
+              <span className="gender-icon"><UserRound size={28} /></span>
               <span className="gender-text">Female</span>
             </button>
           </div>
@@ -133,16 +159,55 @@ function GenderSelection({ onComplete, onBack }) {
               className={`gender-card ${lookingFor === 'male' ? 'selected' : ''}`}
               onClick={() => handleLookingForChange('male')}
             >
-              <span className="gender-icon">👨</span>
+              <span className="gender-icon"><User size={28} /></span>
               <span className="gender-text">Male</span>
             </button>
             <button
               className={`gender-card ${lookingFor === 'female' ? 'selected' : ''}`}
               onClick={() => handleLookingForChange('female')}
             >
-              <span className="gender-icon">👩</span>
+              <span className="gender-icon"><UserRound size={28} /></span>
               <span className="gender-text">Female</span>
             </button>
+          </div>
+        </div>
+
+        {/* Country Selection */}
+        <div className="selection-section">
+          <h3 className="section-label">Country <span className="required-star">*</span></h3>
+          <div className="country-selector">
+            <div className="country-input-wrapper">
+              <input
+                type="text"
+                value={countrySearch}
+                onChange={(e) => {
+                  setCountrySearch(e.target.value);
+                  setShowCountryDropdown(true);
+                  if (!e.target.value) setCountry('');
+                }}
+                onFocus={() => setShowCountryDropdown(true)}
+                placeholder="Search your country..."
+                className="country-input"
+              />
+              <ChevronDown size={18} className="country-chevron" />
+            </div>
+            {showCountryDropdown && countrySearch && (
+              <div className="country-dropdown">
+                {filteredCountries.length > 0 ? (
+                  filteredCountries.map(c => (
+                    <button
+                      key={c}
+                      className={`country-option ${country === c ? 'selected' : ''}`}
+                      onClick={() => handleCountrySelect(c)}
+                    >
+                      {c}
+                    </button>
+                  ))
+                ) : (
+                  <div className="country-no-results">No countries found</div>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
